@@ -1,0 +1,92 @@
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body, html {
+    margin: 0;
+    height: 100%;
+}
+
+
+header {
+    background-color: #1F2937;
+    height: 90px;
+    min-width: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1em;
+    padding: 0 3vw;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+header > select,
+header > input,
+header > button {
+    border-radius: 4px;
+    min-height: 40px;
+    color: white;
+}
+
+header > select {
+    background-color: #1F293A;
+    width: 50vw;
+    max-width: 350px;
+    padding: 5px 10px;
+    font-size: 1rem;
+}
+
+option {
+    padding: 5px;
+}
+
+header > input[type=color] {
+    background-color: #1F293A;
+    border: 1px solid #8d8d8d;
+}
+
+header > button {
+    background-color: #3D4B60;
+    border: none;
+    padding: 5px 20px;
+    font-size: 0.75rem;
+}
+
+header > button:hover {
+    background-color: #586e8e;
+}
+
+header > button:active {
+    background-color: #7692bc;
+}
+
+
+#color-containers {
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
+    grid-template-rows: auto 70px;
+    height: 100%;
+}
+
+.hex-container {
+    background-color: #1F293A;
+}
+
+
+
+
+
+
+@media(min-width:469px) {
+    header > select,
+    header > input,
+    header > button {
+        min-height: 40px;
+    }
+}
+
