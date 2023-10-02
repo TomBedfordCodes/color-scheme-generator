@@ -4,6 +4,12 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="./styles.css">
+
+        <!-- Google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
     </head>
     
     <body>
@@ -22,17 +28,19 @@
         </header>
 
         <section id="color-containers">
-            <div id="col1-container"></div>
-            <div id="col2-container"></div>
-            <div id="col3-container"></div>
-            <div id="col4-container"></div>
-            <div id="col5-container"></div>
+            <div id="col1-container" class="col-container"></div>
+            <div id="col2-container" class="col-container"></div>
+            <div id="col3-container" class="col-container"></div>
+            <div id="col4-container" class="col-container"></div>
+            <div id="col5-container" class="col-container"></div>
             <div id="hex1-container" class="hex-container"></div>
             <div id="hex2-container" class="hex-container"></div>
             <div id="hex3-container" class="hex-container"></div>
             <div id="hex4-container" class="hex-container"></div>
             <div id="hex5-container" class="hex-container"></div>
         </section>
+        
+        <div id="copied-msg" class="info-msg" hidden>Color copied to clipboard!</div>
 
         <script src="./index.js"></script>
     </body>

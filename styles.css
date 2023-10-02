@@ -8,6 +8,8 @@
 body, html {
     margin: 0;
     height: 100%;
+    font-family: 'Inter', sans-serif;
+    background-color: #1F293A;
 }
 
 
@@ -55,6 +57,7 @@ header > button {
     border: none;
     padding: 5px 20px;
     font-size: 0.75rem;
+    font-family: inherit;
 }
 
 header > button:hover {
@@ -69,14 +72,30 @@ header > button:active {
 #color-containers {
     display: grid;
     grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
-    grid-template-rows: auto 70px;
+    grid-template-rows: auto 50px;
     height: 100%;
 }
 
-.hex-container {
-    background-color: #1F293A;
+.col-container {
+    cursor: pointer;
 }
 
+.hex-container {
+    color: white;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    justify-self: center;
+    align-self: center;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.info-msg {
+    background-color: #586e8e;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
 
 
 
