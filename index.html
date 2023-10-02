@@ -16,28 +16,28 @@
         <header>
             <input type="color" id="color-picker">
             <select name="mode-picker" id="mode-picker">
-                <option value="Monochrome">Monochrome</option>
-                <option value="Monochrome-dark">Monochrome-dark</option>
-                <option value="Monochrome-light">Monochrome-light</option>
-                <option value="Analogic">Analogic</option>
-                <option value="Complement">Complement</option>
-                <option value="Analogic-complement">Analogic-complement</option>
-                <option value="Triad">Triad</option>
+                <option value="monochrome">Monochrome</option>
+                <option value="monochrome-dark">Monochrome-dark</option>
+                <option value="monochrome-light">Monochrome-light</option>
+                <option value="analogic">Analogic</option>
+                <option value="complement">Complement</option>
+                <option value="analogic-complement">Analogic-complement</option>
+                <option value="triad">Triad</option>
             </select>
             <button id="submit-btn">Get color scheme</button>
         </header>
 
         <section id="color-containers">
+            <div id="col0-container" class="col-container"></div>
             <div id="col1-container" class="col-container"></div>
             <div id="col2-container" class="col-container"></div>
             <div id="col3-container" class="col-container"></div>
             <div id="col4-container" class="col-container"></div>
-            <div id="col5-container" class="col-container"></div>
+            <div id="hex0-container" class="hex-container"></div>
             <div id="hex1-container" class="hex-container"></div>
             <div id="hex2-container" class="hex-container"></div>
             <div id="hex3-container" class="hex-container"></div>
             <div id="hex4-container" class="hex-container"></div>
-            <div id="hex5-container" class="hex-container"></div>
         </section>
         
         <div id="copied-msg" class="info-msg" hidden>Color copied to clipboard!</div>

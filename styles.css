@@ -95,6 +95,7 @@ header > button:active {
     color: white;
     padding: 10px;
     text-align: center;
+    font-size: 0.75rem;
 }
 
 

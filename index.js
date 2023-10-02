@@ -1,43 +1,66 @@
 
-// PICK A RANDOM FIRST COLOR FOR THE COLOR PICKER
-
+// ELEMENTS
 const colorPicker = document.getElementById("color-picker")
-const starterColor = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6)
+const selectEl = document.getElementById("mode-picker")
+const submitBtn = document.getElementById("submit-btn")
+
+// PICK A RANDOM FIRST COLOR FOR THE COLOR PICKER
+const starterColor = '#' + (0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6)
 colorPicker.value = starterColor
 
+// PICK A RANDOM FIRST MODE
+const options = selectEl.children
+const random  = Math.floor(Math.random() * options.length)
+selectEl.value = options[random].value
 
-
-// ALL THIS BELOW IS PLACEHOLDER STUFF TO GENERATE RANDOM COLORS
+// COLOR DIVS
+const div0 = document.getElementById("col0-container")
 const div1 = document.getElementById("col1-container")
 const div2 = document.getElementById("col2-container")
 const div3 = document.getElementById("col3-container")
 const div4 = document.getElementById("col4-container")
-const div5 = document.getElementById("col5-container")
+const divArr = [div0, div1, div2, div3, div4]
 
-const divArr = [div2, div3, div4, div5]
 
-div1.style.backgroundColor = starterColor
-div1.dataset.color = starterColor
+// SET INITIAL COLORS BASED ON FIRST RANDOM COLOR CHOSEN
+updateColors()
 
-const hex1 = document.getElementById(`hex1-container`)
-hex1.textContent = starterColor
-hex1.dataset.color = starterColor
 
-divArr.forEach(function(div, i) {
-    const colStr = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6)
-    div.style.backgroundColor = colStr
-    div.dataset.color = colStr
-    const hexdiv = document.getElementById(`hex${i+2}-container`)
-    hexdiv.textContent = colStr
-    hexdiv.dataset.color = colStr
+// USE FETCH TO GET FOUR ADDITIONAL SCHEME COLORS BASED ON SUPPLIED COLOR
+function updateColors() {
+    const cleanHex = colorPicker.value.slice(1)
+    const queryStr = `https://www.thecolorapi.com/scheme?hex=${cleanHex}&mode=${selectEl.value}&count=4`
+    fetch(queryStr)
+        .then(res => res.json())
+        .then(data => {
+            let colorsArray = []
+            colorsArray.push(colorPicker.value)
+            for (let color of data.colors) {
+                colorsArray.push(color.hex.value)
+            }
+            populateColContainers(colorsArray)
+        })
+}
+
+// POPULATE ALL THE COLOR COLUMNS AND HEX VALUES
+function populateColContainers(colorsArray) {
+    divArr.forEach(function(div, i) {
+        const colStr = colorsArray[i]
+        div.style.backgroundColor = colStr
+        div.dataset.color = colStr
+        const hexdiv = document.getElementById(`hex${i}-container`)
+        hexdiv.textContent = colStr
+        hexdiv.dataset.color = colStr
+    })
+}
+
+// UPDATE COLORS WHEN BTN CLICKED
+submitBtn.addEventListener("click", function() {
+    updateColors()
 })
 
 
-
-
-// ACTUAL JS HERE
-
-// COPY COLORS
+// COPY COLOR TO CLIPBOARD
 const copyMsgEl = document.getElementById("copied-msg")
 const colsContainer = document.getElementById("color-containers")
 let timeout
