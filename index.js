@@ -66,14 +66,17 @@ const colsContainer = document.getElementById("color-containers")
 let timeout
 
 colsContainer.addEventListener("click", function(e) {
-   clearTimeout(timeout)
-   navigator.clipboard.writeText(e.target.dataset.color);
-   copyMsgEl.hidden = false
-   copyMsgEl.textContent = `Color ${e.target.dataset.color.toUpperCase()} copied to clipboard!`
-   window.scrollTo(0, document.body.scrollHeight)
-   timeout = setTimeout(function() {
-    copyMsgEl.hidden = true
-   }, 2000)
+    if (!e.target.dataset.color) {
+        return
+    }
+    clearTimeout(timeout)
+    navigator.clipboard.writeText(e.target.dataset.color);
+    copyMsgEl.hidden = false
+    copyMsgEl.textContent = `Color ${e.target.dataset.color.toUpperCase()} copied to clipboard!`
+    window.scrollTo(0, document.body.scrollHeight)
+    timeout = setTimeout(function() {
+        copyMsgEl.hidden = true
+    }, 2000)
 })
 
 
