@@ -68,7 +68,7 @@ let timeout
 colsContainer.addEventListener("click", function(e) {
     if (!e.target.dataset.color) {
         return
-    }
+    } 
     clearTimeout(timeout)
     navigator.clipboard.writeText(e.target.dataset.color);
     copyMsgEl.hidden = false
