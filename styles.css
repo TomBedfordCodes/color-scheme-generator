@@ -41,6 +41,7 @@ header > select {
     max-width: 350px;
     padding: 5px 10px;
     font-size: 1rem;
+    cursor: pointer;
 }
 
 option {
@@ -50,6 +51,7 @@ option {
 header > input[type=color] {
     background-color: #1F293A;
     border: 1px solid #8d8d8d;
+    cursor: pointer;
 }
 
 header > button {
@@ -58,6 +60,7 @@ header > button {
     padding: 5px 20px;
     font-size: 0.75rem;
     font-family: inherit;
+    cursor: pointer;
 }
 
 header > button:hover {
